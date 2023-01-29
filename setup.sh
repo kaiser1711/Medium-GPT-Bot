@@ -14,6 +14,7 @@ cd medium
 aws s3 cp s3://examplebucket/medium/ ./ --recursive
 # install needed packages
 sudo apt install pip -y
+pip install --upgrade pip
 sudo apt install git -y
 pip install openai
 rm -r -f tweepy
