@@ -1,5 +1,6 @@
 import logging
 import logging.handlers
+import config
 
 class TlsSMTPHandler(logging.handlers.SMTPHandler):
     def emit(self, record):
@@ -39,7 +40,7 @@ class TlsSMTPHandler(logging.handlers.SMTPHandler):
  
 logger = logging.getLogger()
  
-gm = TlsSMTPHandler(("smtp.gmail.com", 587), config.email, [config.email,], 'Error found!',(config.email, config.email_passwordl))
+gm = TlsSMTPHandler(("smtp.gmail.com", 587), config.email, [config.email,], 'Error found!',(config.email, config.email_password))
 gm.setLevel(logging.ERROR)
  
 logger.addHandler(gm)
@@ -47,7 +48,6 @@ logger.addHandler(gm)
 try:
     import os
     import openai
-    import config
     import tweepy
     import datetime
     import subprocess
